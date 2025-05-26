@@ -12,121 +12,143 @@
     padding: 0;
   }
   body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
     color: #222;
   }
   header {
-    background: #5d3fd3; /* Unique purple shade */
+    background: #4b3fbd; /* Deep purple */
     color: white;
-    padding: 20px 40px;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 2px 8px rgba(75,63,189,0.4);
   }
   header h1 {
     font-weight: 900;
     letter-spacing: 2px;
     cursor: pointer;
+    font-size: 1.8rem;
   }
   nav a {
     color: white;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 35px;
     font-weight: 600;
+    font-size: 1rem;
     transition: color 0.3s ease;
   }
   nav a:hover {
     color: #d4bcff;
   }
   .hero {
-    background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80') no-repeat center/cover;
-    height: 450px;
+    background: url('https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1400&q=90') no-repeat center/cover;
+    height: 480px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 3rem;
-    font-weight: 700;
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+    font-size: 3.2rem;
+    font-weight: 800;
+    text-shadow: 4px 4px 12px rgba(0,0,0,0.7);
+    text-align: center;
+    padding: 0 20px;
   }
   .section {
-    max-width: 1200px;
-    margin: 50px auto;
+    max-width: 1250px;
+    margin: 60px auto;
     padding: 0 20px;
   }
   .section h2 {
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #5d3fd3;
+    font-weight: 800;
+    margin-bottom: 35px;
+    color: #4b3fbd;
     text-align: center;
+    font-size: 2.5rem;
   }
   .categories, .products {
     display: flex;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
   }
   .card {
     background: white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
-    width: 270px;
-    transition: transform 0.3s ease;
+    width: 280px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
   .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.2);
   }
   .card img {
     width: 100%;
     height: 320px;
     object-fit: cover;
+    filter: drop-shadow(0 0 0.3rem rgba(0,0,0,0.1));
   }
   .card-content {
-    padding: 15px 20px;
+    padding: 18px 22px;
     text-align: center;
   }
   .card-content p {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #222;
+  }
+  .price {
     font-weight: 600;
+    color: #555;
+    margin-bottom: 16px;
     font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #333;
   }
   .btn {
     display: inline-block;
-    padding: 10px 25px;
-    border-radius: 25px;
-    background-color: #5d3fd3;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: #4b3fbd;
     color: white;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     transition: background-color 0.3s ease;
     text-decoration: none;
+    font-size: 1rem;
   }
   .btn:hover {
-    background-color: #4a2bb8;
+    background-color: #3a2ea0;
   }
   footer {
     background-color: #222;
-    color: #ccc;
+    color: #aaa;
     text-align: center;
-    padding: 25px 15px;
-    margin-top: 60px;
+    padding: 30px 15px;
+    margin-top: 80px;
+    font-size: 0.95rem;
   }
-  footer p {
-    font-size: 0.9rem;
-  }
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     .categories, .products {
       flex-direction: column;
       align-items: center;
+    }
+    header {
+      flex-direction: column;
+      padding: 20px 20px;
+      gap: 15px;
+    }
+    nav a {
+      margin-left: 0;
+      margin-right: 25px;
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -143,28 +165,28 @@
 </header>
 
 <section class="hero">
-  Find Your Style, Your Way
+  Style That Speaks<br />Your Language
 </section>
 
 <section class="section">
   <h2>Shop by Category</h2>
   <div class="categories">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=400&q=80" alt="Men's Fashion" />
+      <img src="https://images.unsplash.com/photo-1600185361367-428f39a1f32e?auto=format&fit=crop&w=400&q=90" alt="Men's Fashion" />
       <div class="card-content">
         <p>Men</p>
         <a href="men.html" class="btn">Shop Now</a>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Women's Fashion" />
+      <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09d36?auto=format&fit=crop&w=400&q=90" alt="Women's Fashion" />
       <div class="card-content">
         <p>Women</p>
         <a href="women.html" class="btn">Shop Now</a>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Kids Fashion" />
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=90" alt="Kids Fashion" />
       <div class="card-content">
         <p>Kids</p>
         <a href="kids.html" class="btn">Shop Now</a>
@@ -177,26 +199,26 @@
   <h2>Featured Products</h2>
   <div class="products">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=400&q=80" alt="Stylish Shirt" />
+      <img src="https://images.unsplash.com/photo-1602810319139-3e506ff2e9e1?auto=format&fit=crop&w=400&q=90" alt="Men's Casual Shirt" />
       <div class="card-content">
-        <p>Stylish Shirt</p>
-        <p>₹799</p>
+        <p>Men's Casual Shirt</p>
+        <p class="price">₹799</p>
         <a href="#" class="btn">Buy Now</a>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=400&q=80" alt="Elegant Kurti" />
+      <img src="https://images.unsplash.com/photo-1555529669-25d7d37a2a56?auto=format&fit=crop&w=400&q=90" alt="Elegant Women's Kurti" />
       <div class="card-content">
         <p>Elegant Kurti</p>
-        <p>₹1099</p>
+        <p class="price">₹1,099</p>
         <a href="#" class="btn">Buy Now</a>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80" alt="Kids Outfit" />
+      <img src="https://images.unsplash.com/photo-1503437313881-503a91226419?auto=format&fit=crop&w=400&q=90" alt="Kids Outfit" />
       <div class="card-content">
         <p>Kids Outfit</p>
-        <p>₹499</p>
+        <p class="price">₹499</p>
         <a href="#" class="btn">Buy Now</a>
       </div>
     </div>

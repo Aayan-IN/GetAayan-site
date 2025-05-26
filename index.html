@@ -1,154 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GetAayan - Fashion for Everyone</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fefefe;
-    }
-    header {
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .banner {
-      background: url('https://via.placeholder.com/1200x400/ccccff/333333?text=Style+Starts+Here') no-repeat center/cover;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 32px;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GetAayan - Fashion That Inspires</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+    color: #222;
+  }
+  header {
+    background: #5d3fd3; /* Unique purple shade */
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 {
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #d4bcff;
+  }
+  .hero {
+    background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80') no-repeat center/cover;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+  }
+  .section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+  .section h2 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #5d3fd3;
+    text-align: center;
+  }
+  .categories, .products {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 270px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+  .card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
+  .card-content {
+    padding: 15px 20px;
+    text-align: center;
+  }
+  .card-content p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background-color: #5d3fd3;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background-color: #4a2bb8;
+  }
+  footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 60px;
+  }
+  footer p {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
     .categories, .products {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      align-items: center;
     }
-    .card {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-    .card p {
-      margin: 10px;
-      font-weight: bold;
-      text-align: center;
-      color: #444;
-    }
-    footer {
-      background: #111;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    @media (max-width: 600px) {
-      header, .categories, .products {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav a {
-        display: block;
-        margin: 5px 0;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>GetAayan</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="men.html">Men</a>
-      <a href="women.html">Women</a>
-      <a href="kids.html">Kids</a>
-    </nav>
-  </header>
+<header>
+  <h1>GetAayan</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="men.html">Men</a>
+    <a href="women.html">Women</a>
+    <a href="kids.html">Kids</a>
+  </nav>
+</header>
 
-  <div class="banner">
-    Discover Your Style with GetAayan
-  </div>
+<section class="hero">
+  Find Your Style, Your Way
+</section>
 
-  <section class="section">
-    <h2>Shop by Category</h2>
-    <div class="categories">
-      <div class="card">
-        <img src="https://via.placeholder.com/250x280?text=Men" alt="Men" />
+<section class="section">
+  <h2>Shop by Category</h2>
+  <div class="categories">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=400&q=80" alt="Men's Fashion" />
+      <div class="card-content">
         <p>Men</p>
+        <a href="men.html" class="btn">Shop Now</a>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/250x280?text=Women" alt="Women" />
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Women's Fashion" />
+      <div class="card-content">
         <p>Women</p>
+        <a href="women.html" class="btn">Shop Now</a>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/250x280?text=Kids" alt="Kids" />
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Kids Fashion" />
+      <div class="card-content">
         <p>Kids</p>
+        <a href="kids.html" class="btn">Shop Now</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <h2>Featured Products</h2>
-    <div class="products">
-      <div class="card">
-        <img src="https://via.placeholder.com/250x280?text=Stylish+Shirt" alt="Shirt" />
-        <p>Stylish Shirt - ₹699</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/250x280?text=Trendy+Kurti" alt="Kurti" />
-        <p>Trendy Kurti - ₹849</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/250x280?text=Kids+Wear" alt="Kids" />
-        <p>Kids Outfit - ₹499</p>
+<section class="section">
+  <h2>Featured Products</h2>
+  <div class="products">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=400&q=80" alt="Stylish Shirt" />
+      <div class="card-content">
+        <p>Stylish Shirt</p>
+        <p>₹799</p>
+        <a href="#" class="btn">Buy Now</a>
       </div>
     </div>
-  </section>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=400&q=80" alt="Elegant Kurti" />
+      <div class="card-content">
+        <p>Elegant Kurti</p>
+        <p>₹1099</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80" alt="Kids Outfit" />
+      <div class="card-content">
+        <p>Kids Outfit</p>
+        <p>₹499</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 GetAayan. All rights reserved.
-  </footer>
+<footer>
+  <p>&copy; 2025 GetAayan. All rights reserved.</p>
+</footer>
 </body>
 </html>

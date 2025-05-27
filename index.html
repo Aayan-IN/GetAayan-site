@@ -2,182 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GetAayan - One Store, All Products</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your E-commerce Store</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* Basic Reset & Styles */
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffffff;
-      color: #222;
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
     }
-
     header {
-      background: #fff;
+      background-color: #2874f0;
+      color: white;
+      padding: 10px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 5%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
-    .logo-area {
-      display: flex;
-      flex-direction: column;
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
-
-    .logo-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #ff3f6c;
-    }
-
-    .logo-subtitle {
-      font-size: 14px;
-      color: #555;
-      font-weight: 400;
-    }
-
     nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1600&q=100') no-repeat center center/cover;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
       color: white;
-      position: relative;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0,0,0,0.4);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 50px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 25px;
-    }
-
-    .hero a {
-      background-color: #ff3f6c;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 30px;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: 600;
     }
-
-    .categories {
-      padding: 50px 5%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .search-bar input {
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: none;
+      width: 250px;
+      max-width: 100%;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+      font-size: 2.5rem;
+      font-weight: 700;
       text-align: center;
+      padding: 0 20px;
     }
-
-    .category-card {
-      border-radius: 12px;
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .categories, .trending {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .category, .product {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
       cursor: pointer;
+      transition: box-shadow 0.3s ease;
     }
-
-    .category-card:hover {
-      transform: translateY(-5px);
+    .category:hover, .product:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-
-    .category-card img {
+    .category img, .product img {
       width: 100%;
-      height: 220px;
+      height: 150px;
       object-fit: cover;
     }
-
-    .category-card h3 {
-      margin: 15px 0;
-      font-size: 18px;
+    .category-name, .product-name {
+      padding: 10px;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
-
     footer {
-      background-color: #f7f7f7;
-      padding: 30px 5%;
+      background-color: #222;
+      color: #ccc;
       text-align: center;
-      font-size: 14px;
-      color: #777;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media(max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .search-bar input {
+        width: 100%;
+        margin-top: 10px;
+      }
+      .hero {
+        font-size: 1.8rem;
+        height: 250px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-area">
-      <span class="logo-title">GetAayan</span>
-      <span class="logo-subtitle">One store – All products</span>
-    </div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Men</a>
-      <a href="#">Women</a>
-      <a href="#">Kids</a>
-      <a href="#">Offers</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Fashion That Defines You</h1>
-      <p>Shop latest trends for Men, Women & Kids</p>
-      <a href="#">Explore Now</a>
-    </div>
-  </section>
+<header>
+  <div class="logo">YourStore</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Men</a>
+    <a href="#">Women</a>
+    <a href="#">Kids</a>
+    <a href="#">Deals</a>
+    <a href="#">Cart</a>
+    <a href="#">Login</a>
+  </nav>
+  <div class="search-bar">
+    <input type="text" placeholder="Search for products, brands..." />
+  </div>
+</header>
 
-  <section class="categories">
-    <div class="category-card">
-      <img src="https://images.unsplash.com/photo-1600180758890-6b94519f35ec?auto=format&fit=crop&w=1000&q=100" alt="Men" />
-      <h3>Men</h3>
-    </div>
-    <div class="category-card">
-      <img src="https://images.unsplash.com/photo-1622335785054-d3d23f047c90?auto=format&fit=crop&w=1000&q=100" alt="Women" />
-      <h3>Women</h3>
-    </div>
-    <div class="category-card">
-      <img src="https://images.unsplash.com/photo-1600417140408-b9a78abdd103?auto=format&fit=crop&w=1000&q=100" alt="Kids" />
-      <h3>Kids</h3>
-    </div>
-  </section>
+<div class="hero">
+  Shop the Latest Trends & Best Deals!
+</div>
 
-  <footer>
-    &copy; 2025 GetAayan. Built for the future of online fashion.
-  </footer>
+<section>
+  <h2>Featured Categories</h2>
+  <div class="categories">
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=400&q=80" alt="Men" />
+      <div class="category-name">Men</div>
+    </div>
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Women" />
+      <div class="category-name">Women</div>
+    </div>
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Kids" />
+      <div class="category-name">Kids</div>
+    </div>
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80" alt="Accessories" />
+      <div class="category-name">Accessories</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Trending Deals</h2>
+  <div class="trending">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Product 1" />
+      <div class="product-name">Stylish Sneakers</div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Product 2" />
+      <div class="product-name">Elegant Watches</div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80" alt="Product 3" />
+      <div class="product-name">Trendy Bags</div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Product 4" />
+      <div class="product-name">Fashion Sunglasses</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 YourStore. All rights reserved.  
+  <br />
+  <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+</footer>
+
 </body>
 </html>
